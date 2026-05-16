@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Front-End Developer Portfolio</title>
+    
+</head>
+<body class="is-loading">
+    <div class="site-loader" id="site-loader" aria-label="Loading portfolio">
+        <div class="loader-orbit">
+            <span class="loader-line loader-line-one"></span>
+            <span class="loader-line loader-line-two"></span>
+            <span class="loader-line loader-line-three"></span>
+            <div class="loader-mark">RZ</div>
+        </div>
+        <div class="loader-light-ball"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-brand">
+            <div class="logo">Vince Aerhol Cabardo</div>
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" aria-pressed="false">
+                <span class="theme-option theme-dark">Dark</span>
+                <span class="theme-option theme-light">Light</span>
+                <span class="theme-thumb"></span>
+            </button>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-copy">
+                    <h1 id="hero-title">Hi, I'm a Front-End Developer</h1>
+                    <p>Crafting beautiful, responsive, and user-friendly web experiences with modern technologies.</p>
+                    <div class="hero-actions">
+                        <a href="#works" class="cta-button">View My Work</a>
+                        <a href="#contact" class="cta-button">Get In Touch</a>
+                    </div>
+                </div>
+
+                <div class="id-card-wrap" aria-label="Profile photo card">
+                    <div class="floating-tech-icon icon-html">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">
+                    </div>
+                    <div class="floating-tech-icon icon-css">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">
+                    </div>
+                    <div class="floating-tech-icon icon-js">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">
+                    </div>
+                    <div class="floating-tech-icon icon-react">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">
+                    </div>
+                    <div class="floating-tech-icon icon-figma">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="">
+                    </div>
+
+                    <div class="id-card">
+                        <div class="id-card-clip"></div>
+                        <div class="id-photo-frame">
+                            <img src="images/blur.jpg" alt="Vince Aerhol Cabardo" draggable="false" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+                            <span class="id-photo-placeholder">Add profile.jpg</span>
+                        </div>
+                        <div class="id-card-footer">
+                            <span>Vince Aerhol Cabardo</span>
+                            <small>Portfolio ID</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   
+    <!-- Tech Stack Section -->
+    <div class="tech-stack">
+        <h3>Tech Stack</h3>
+        <div class="tech-carousel" id="tech-carousel">
+            <div class="tech-items" id="tech-items">
+                <!-- Tech stack and tools items - duplicated by JavaScript for infinite scroll -->
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    </div>
+                    <p>HTML</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                    </div>
+                    <p>CSS</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                    </div>
+                    <p>JavaScript</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    </div>
+                    <p>React</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS">
+                    </div>
+                    <p>NextJS</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                    </div>
+                    <p>MySQL</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" alt="Prisma">
+                    </div>
+                    <p>Prisma</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub">
+                    </div>
+                    <p>GitHub</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab">
+                    </div>
+                    <p>GitLab</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                    </div>
+                    <p>Figma</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wix.svg" alt="Wix Studio">
+                    </div>
+                    <p>Wix Studio</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/windsurf.svg" alt="Windsurf">
+                    </div>
+                    <p>Windsurf</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                    </div>
+                    <p>VS Code</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/githubcopilot.svg" alt="Copilot">
+                    </div>
+                    <p>Copilot</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon-box">
+                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt="ChatGPT">
+                    </div>
+                    <p>ChatGPT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I'm a passionate front-end developer with a love for creating elegant and intuitive digital experiences. 
+            With expertise in HTML, CSS, JavaScript, and modern frameworks, I specialize in building responsive websites 
+            that not only look great but also perform exceptionally well.
+        </p>
+        <p>
+            My journey in web development is driven by a commitment to clean code, best practices, and continuous learning. 
+            I believe in creating interfaces that users love to interact with.
+        </p>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <h2>My Works</h2>
+        <div class="works-cube-stage">
+            <div class="works-cube" id="works-cube">
+                <div class="work-card cube-face cube-face-front">
+                    <span class="work-index">01</span>
+                    <h3>E-Commerce Platform</h3>
+                    <p>A fully responsive e-commerce website built with React and Redux, featuring product filtering, cart management, and smooth checkout experience.</p>
+                </div>
+                <div class="work-card cube-face cube-face-right">
+                    <span class="work-index">02</span>
+                    <h3>Task Management App</h3>
+                    <p>An interactive task management application with real-time updates, user authentication, and a modern dark UI design.</p>
+                </div>
+                <div class="work-card cube-face cube-face-back">
+                    <span class="work-index">03</span>
+                    <h3>Portfolio Website</h3>
+                    <p>A stunning personal portfolio showcasing my skills, projects, and experience with smooth animations and modern design patterns.</p>
+                </div>
+                <div class="work-card cube-face cube-face-left">
+                    <span class="work-index">04</span>
+                    <h3>Weather Dashboard</h3>
+                    <p>A responsive weather application that displays real-time weather data with beautiful visualizations and location-based features.</p>
+                </div>
+                <div class="cube-cap cube-face-top" aria-hidden="true"></div>
+                <div class="cube-cap cube-face-bottom" aria-hidden="true"></div>
+            </div>
+        </div>
+        <div class="works-cube-controls" aria-label="Rotate works cube">
+            <button type="button" class="cube-control" id="cube-prev" aria-label="Previous work">Prev</button>
+            <button type="button" class="cube-control" id="cube-next" aria-label="Next work">Next</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Feel free to reach out to me for any inquiries or collaboration opportunities. I'd love to hear from you!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧 Email:</span>
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+            </div>
+            <div class="contact-item">
+                <span>💼 LinkedIn:</span>
+                <a href="https://linkedin.com" target="_blank">linkedin.com/in/yourprofile</a>
+            </div>
+            <div class="contact-item">
+                <span>🐙 GitHub:</span>
+                <a href="https://github.com" target="_blank">github.com/yourprofile</a>
+            </div>
+            <div class="contact-item">
+                <span>𝕏 Twitter:</span>
+                <a href="https://twitter.com" target="_blank">@yourhandle</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Front-End Developer. All rights reserved.</p>
+        
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
