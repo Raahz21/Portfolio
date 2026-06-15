@@ -57,9 +57,10 @@ document.querySelectorAll('nav a').forEach(link => {
         const targetSection = document.getElementById(targetId);
         
         if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const targetPosition = targetSection.offsetTop;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'auto'
             });
         }
     });
@@ -73,36 +74,13 @@ document.querySelectorAll('.cta-button').forEach(button => {
         const targetSection = document.getElementById(targetId);
         
         if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const targetPosition = targetSection.offsetTop;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'auto'
             });
         }
     });
-});
-
-// Add animation to sections when they come into view
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(section);
 });
 
 // Initialize text scattering effect
@@ -417,5 +395,302 @@ if (worksCube && worksCubeStage && cubePrev && cubeNext) {
     worksCubeStage.addEventListener('lostpointercapture', stopCubeDrag);
 }
 
-// index.js
-// ...
+// Parallax Scroll Effect - Sections zoom out and move down when scrolling past
+function initParallaxScroll() {
+    // Check if mobile device - disable parallax for performance
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return;
+
+    const sections = document.querySelectorAll('section');
+    if (sections.length === 0) return;
+
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const scrollDirection = scrollY > lastScrollY ? 'down' : 'up';
+        lastScrollY = scrollY;
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const sectionCenter = rect.top + rect.height / 2;
+            const viewportCenter = windowHeight / 2;
+            
+            // Calculate how far the section center is from viewport center
+            // Negative = above center, Positive = below center
+            const distanceFromCenter = (sectionCenter - viewportCenter) / windowHeight;
+            
+            // Clamp the distance to prevent extreme values
+            const clampedDistance = Math.max(-1.5, Math.min(1.5, distanceFromCenter));
+            
+            // Calculate transform values based on scroll position
+            // When section is above center (scrolling down): zoom out, move down
+            // When section is below center (scrolling up): zoom in, move up
+            
+            let translateY = 0;
+            let scale = 1;
+            let opacity = 1;
+            let rotateX = 0;
+            
+            if (clampedDistance < 0) {
+                // Section is above center - moving away (zoom out effect)
+                const progress = Math.abs(clampedDistance); // 0 to 1.5
+                translateY = progress * 80; // Move down
+                scale = Math.max(0.85, 1 - progress * 0.1); // Zoom out
+                opacity = Math.max(0.4, 1 - progress * 0.35); // Fade out
+                rotateX = progress * 3; // Slight tilt
+            } else if (clampedDistance > 0) {
+                // Section is below center - coming into view (zoom in effect)
+                const progress = clampedDistance; // 0 to 1.5
+                translateY = -progress * 50; // Move up
+                scale = Math.max(0.9, 1 - progress * 0.06); // Slight zoom
+                opacity = Math.max(0.5, 1 - progress * 0.3); // Slight fade
+                rotateX = -progress * 2; // Slight reverse tilt
+            }
+            
+            // Apply transforms
+            section.style.transform = `
+                perspective(1000px)
+                translateY(${translateY}px)
+                scale(${scale})
+                rotateX(${rotateX}deg)
+            `;
+            section.style.opacity = opacity;
+        });
+
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', onScroll, { passive: true });
+    
+    // Initial call
+    updateParallax();
+    
+    // Update on resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768) {
+            // Reset transforms on mobile
+            sections.forEach(section => {
+                section.style.transform = 'none';
+                section.style.opacity = '1';
+            });
+        } else {
+            updateParallax();
+        }
+    });
+}
+
+// Initialize parallax scroll effect after DOM is loaded
+document.addEventListener('DOMContentLoaded', initParallaxScroll);
+// Also initialize if the DOM is already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParallaxScroll);
+} else {
+    initParallaxScroll();
+}
+
+// =============================================
+// VERTICAL TECH RAIL — Infinite Scroll + Wheel/Drag Control
+// =============================================
+function initTechRail() {
+    const track = document.getElementById('tech-rail-track');
+    const rail = document.querySelector('.about-tech-rail');
+    if (!track || !rail) return;
+
+    const items = Array.from(track.querySelectorAll('.tech-rail-icon'));
+    if (items.length === 0) return;
+
+    const CSS_ANIMATION = 'techRailScroll 60s linear infinite';
+
+    // Clone items many times for plenty of scroll buffer (10 copies = 11x total)
+    for (let i = 0; i < 10; i++) {
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
+    }
+
+    // Calculate height of one original set (for snap-based looping)
+    let setHeight = 0;
+    function calcSetHeight() {
+        const allIcons = track.querySelectorAll('.tech-rail-icon');
+        const count = items.length;
+        if (allIcons.length === 0 || count === 0) return;
+        let h = 0;
+        for (let i = 0; i < count && i < allIcons.length; i++) {
+            h += allIcons[i].offsetHeight || 0;
+        }
+        // Add gap between items (16px from CSS * (count-1))
+        h += 16 * (count - 1);
+        setHeight = h;
+    }
+
+    // Calculate on next frame after layout
+    requestAnimationFrame(() => calcSetHeight());
+
+    let scrollTimeout = null;
+    let offset = 0; // cumulative scroll/drag offset (always negative or 0 for downward scroll)
+
+    function syncTransform() {
+        // Snap: when offset exceeds setHeight in either direction, jump by one setHeight
+        // Keep offset within [-setHeight, 0] range for seamless looping
+        const snapThreshold = setHeight > 0 ? setHeight : Infinity;
+        
+        if (snapThreshold !== Infinity) {
+            // Snap forward (too far down)
+            while (offset < -snapThreshold) {
+                offset += snapThreshold;
+            }
+            // Snap backward (too far up)
+            while (offset > 0) {
+                offset -= snapThreshold;
+            }
+        }
+        
+        track.style.transition = 'none';
+        track.style.transform = `translateY(${offset}px)`;
+    }
+
+    function enableManual() {
+        track.style.animation = 'none';
+        syncTransform();
+    }
+
+    function resumeAuto() {
+        track.style.transition = 'transform 0.5s ease-out';
+        track.style.transform = 'translateY(0)';
+        offset = 0;
+
+        setTimeout(() => {
+            track.style.transition = '';
+            track.style.transform = '';
+            track.style.animation = CSS_ANIMATION;
+        }, 500);
+    }
+
+    // ---- WHEEL SCROLL ----
+    rail.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        enableManual();
+        offset -= e.deltaY;
+        syncTransform();
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => { resumeAuto(); scrollTimeout = null; }, 2000);
+    }, { passive: false });
+
+    // ---- DRAG TO SCROLL ----
+    let isDragging = false;
+    let dragPrevY = 0;
+
+    rail.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        dragPrevY = e.clientY;
+        rail.style.cursor = 'grabbing';
+        enableManual();
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        offset += e.clientY - dragPrevY;
+        dragPrevY = e.clientY;
+        syncTransform();
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        rail.style.cursor = '';
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => { resumeAuto(); scrollTimeout = null; }, 2000);
+    });
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTechRail);
+} else {
+    initTechRail();
+}
+
+// =============================================
+// ABOUT SECTION — Scroll Reveal Animations
+// =============================================
+function initAboutReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Add staggered delay based on index for children
+                const parent = entry.target.closest('.about-left, .about-photo-stack, .about-right');
+                if (parent) {
+                    const siblings = parent.querySelectorAll('.reveal, .reveal-scale');
+                    const index = Array.from(siblings).indexOf(entry.target);
+                    // Use the CSS transition-delay already defined in styles
+                }
+                
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAboutReveal);
+} else {
+    initAboutReveal();
+}
+
+// Flip cards in the about photo stack
+(function initFlipCards() {
+    const flipCards = document.querySelectorAll('.flip-card');
+    if (!flipCards.length) return;
+
+    flipCards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+})();
+
+// =============================================
+// VERTICAL CAROUSEL — Infinite Scroll Duplication
+// =============================================
+function initVerticalCarousel() {
+    const track = document.getElementById('vertical-carousel-track');
+    if (!track) return;
+
+    const items = Array.from(track.querySelectorAll('.vertical-carousel-text-item'));
+    if (items.length === 0) return;
+
+    // Clone all items for seamless loop
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+    });
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVerticalCarousel);
+} else {
+    initVerticalCarousel();
+}

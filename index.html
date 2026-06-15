@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik+80s+Fade&family=Bruno+Ace+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <title>Front-End Developer Portfolio</title>
     
@@ -30,6 +33,7 @@
         </div>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#works">Works</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -38,35 +42,36 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <div class="hero" id="home">
+        <section class="hero-section" id="home">
+            <div class="hero">
             <div class="hero-content">
-                <div class="hero-copy">
-                    <h1 id="hero-title">Hi, I'm a Front-End Developer</h1>
-                    <p>Crafting beautiful, responsive, and user-friendly web experiences with modern technologies.</p>
-                    <div class="hero-actions">
+                <div class="hero-copy" data-parallax="0.3">
+                    <h1 id="hero-title" data-parallax="0.5">Hi, I'm a Front-End Developer</h1>
+                    <p data-parallax="0.4">Crafting beautiful, responsive, and user-friendly web experiences with modern technologies.</p>
+                    <div class="hero-actions" data-parallax="0.25">
                         <a href="#works" class="cta-button">View My Work</a>
                         <a href="#contact" class="cta-button">Get In Touch</a>
                     </div>
                 </div>
 
-                <div class="id-card-wrap" aria-label="Profile photo card">
-                    <div class="floating-tech-icon icon-html">
+                <div class="id-card-wrap" aria-label="Profile photo card" data-parallax="0.4">
+                    <div class="floating-tech-icon icon-html" data-parallax="0.6">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">
                     </div>
-                    <div class="floating-tech-icon icon-css">
+                    <div class="floating-tech-icon icon-css" data-parallax="0.55">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">
                     </div>
-                    <div class="floating-tech-icon icon-js">
+                    <div class="floating-tech-icon icon-js" data-parallax="0.5">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">
                     </div>
-                    <div class="floating-tech-icon icon-react">
+                    <div class="floating-tech-icon icon-react" data-parallax="0.45">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">
                     </div>
-                    <div class="floating-tech-icon icon-figma">
+                    <div class="floating-tech-icon icon-figma" data-parallax="0.65">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="">
                     </div>
 
-                    <div class="id-card">
+                    <div class="id-card" data-parallax="0.35">
                         <div class="id-card-clip"></div>
                         <div class="id-photo-frame">
                             <img src="images/ID-image.JPG" alt="Vince Aerhol Cabardo" draggable="false" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
@@ -79,133 +84,209 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </section>
 
-   
-    <!-- Tech Stack Section -->
-    <div class="tech-stack">
-        <h3>Tech Stack</h3>
-        <div class="tech-carousel" id="tech-carousel">
-            <div class="tech-items" id="tech-items">
-                <!-- Tech stack and tools items - duplicated by JavaScript for infinite scroll -->
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+
+    <!-- About Section - Editorial Magazine Layout -->
+    <section class="about-section" id="about">
+        <!-- Decorative background shapes -->
+        <div class="about-deco-circle about-deco-1"></div>
+        <div class="about-deco-circle about-deco-2"></div>
+        <div class="about-deco-dots"></div>
+        <div class="about-deco-line"></div>
+
+        <div class="about-inner">
+            <!-- Left Column: Text Content -->
+            <div class="about-left">
+                <div class="about-header reveal">
+                    <span class="about-section-label">About</span>
+                    <h2>Behind the Code</h2>
+                    <div class="about-divider">
+                        <span class="about-divider-line"></span>
+                        <span class="about-divider-diamond"></span>
+                        <span class="about-divider-line"></span>
                     </div>
-                    <p>HTML</p>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                    </div>
-                    <p>CSS</p>
+
+                <div class="about-intro reveal">
+                    <p class="about-bio">
+                        I'm a passionate front-end developer with a love for creating elegant and intuitive digital experiences. 
+                        With expertise in HTML, CSS, JavaScript, and modern frameworks, I specialize in building responsive websites 
+                        that not only look great but also perform exceptionally well.
+                    </p>
+                    <p class="about-bio">
+                        My journey in web development is driven by a commitment to clean code, best practices, and continuous learning. 
+                        I believe in creating interfaces that users love to interact with.
+                    </p>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+
+                <!-- Education Section -->
+                <div class="about-subsection reveal">
+                    <h3 class="about-subsection-title">
+                        <span class="subsection-icon">🎓</span>
+                        Education
+                    </h3>
+                    <div class="about-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">2022 — 2026</span>
+                                <h4>Bachelor of Science in Computer Engineering</h4>
+                                <p>Cebu Technological University – Danao Campus</p>
+                                <span class="timeline-honor">Cum Laude</span>
+                            </div>
+                        </div>
                     </div>
-                    <p>JavaScript</p>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+
+                <!-- Experience Section -->
+                <div class="about-subsection reveal">
+                    <h3 class="about-subsection-title">
+                        <span class="subsection-icon">💼</span>
+                        Experience
+                    </h3>
+                    <div class="about-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <p>Built responsive and interactive web applications using modern frontend technologies.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <p>Developed personal and academic full-stack projects focused on performance, UI/UX, and scalability.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <p>Experienced in integrating REST APIs, responsive design principles, and modern development workflows using Git and GitHub.</p>
+                            </div>
+                        </div>
                     </div>
-                    <p>React</p>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="NextJS">
+            </div>
+
+            <!-- Right Column: Visual / Photo Layout + Vertical Tech Rail -->
+            <div class="about-right">
+                <div class="about-photo-stack">
+                    <!-- Main featured image -->
+                    <div class="photo-card photo-main reveal-scale">
+                        <div class="photo-frame">
+                            <img src="images/MainID.jpg" alt="Vince Aerhol Cabardo" onerror="this.style.display='none'">
+                        </div>
+                        <div class="photo-caption">
+                            <span class="photo-name">Vince Aerhol Cabardo</span>
+                            <span class="photo-role">Front-End Developer</span>
+                        </div>
                     </div>
-                    <p>NextJS</p>
+
+                    <!-- Flip card 1 (below-left diagonal with IDmini image) -->
+                    <div class="flip-card flip-card-1 reveal-scale">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/IDmini.jpg" alt="Vince Aerhol" onerror="this.style.display='none'">
+                                <span class="flip-card-label">Front</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-card-back-content">
+                                    <span class="flip-card-back-icon">✦</span>
+                                    <span class="flip-card-back-text">Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Decorative sticker elements -->
+                    <div class="about-sticker about-sticker-1">✦</div>
+                    <div class="about-sticker about-sticker-2">◆</div>
+                    <div class="about-sticker about-sticker-3">●</div>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+
+                <!-- Vertical Carousel (background text between photo and tech rail) — "Behind the code" text -->
+                <div class="about-vertical-carousel">
+                    <div class="vertical-carousel-track" id="vertical-carousel-track">
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
+                        <div class="vertical-carousel-text-item">Behind the code</div>
                     </div>
-                    <p>MySQL</p>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" alt="Prisma">
+
+                <!-- Skills Section -->
+                <div class="about-skills reveal">
+                    <h3 class="about-subsection-title">
+                        <span class="subsection-icon">🛠️</span>
+                        Tech Skills
+                    </h3>
+                    <div class="skills-group">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Next.js</span>
+                        <span class="skill-badge">TypeScript</span>
+                        <span class="skill-badge">Tailwind</span>
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Figma</span>
                     </div>
-                    <p>Prisma</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub">
+
+                    <h3 class="about-subsection-title about-subsection-title-alt">
+                        <span class="subsection-icon">💡</span>
+                        Personal Skills
+                    </h3>
+                    <div class="skills-group">
+                        <span class="skill-badge skill-badge-alt">Problem Solving</span>
+                        <span class="skill-badge skill-badge-alt">Creative Thinking</span>
+                        <span class="skill-badge skill-badge-alt">Teamwork</span>
+                        <span class="skill-badge skill-badge-alt">Communication</span>
+                        <span class="skill-badge skill-badge-alt">Adaptability</span>
+                        <span class="skill-badge skill-badge-alt">Time Management</span>
+                        <span class="skill-badge skill-badge-alt">Attention to Detail</span>
                     </div>
-                    <p>GitHub</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab">
-                    </div>
-                    <p>GitLab</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-                    </div>
-                    <p>Figma</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/wix.svg" alt="Wix Studio">
-                    </div>
-                    <p>Wix Studio</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/windsurf.svg" alt="Windsurf">
-                    </div>
-                    <p>Windsurf</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
-                    </div>
-                    <p>VS Code</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/githubcopilot.svg" alt="Copilot">
-                    </div>
-                    <p>Copilot</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon-box">
-                        <img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/openai.svg" alt="ChatGPT">
-                    </div>
-                    <p>ChatGPT</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I'm a passionate front-end developer with a love for creating elegant and intuitive digital experiences. 
-            With expertise in HTML, CSS, JavaScript, and modern frameworks, I specialize in building responsive websites 
-            that not only look great but also perform exceptionally well.
-        </p>
-        <p>
-            My journey in web development is driven by a commitment to clean code, best practices, and continuous learning. 
-            I believe in creating interfaces that users love to interact with.
-        </p>
+        <!-- Tech Stack Vertical Rail (positioned on right edge of section) -->
+        <div class="about-tech-rail reveal-scale" aria-label="Technology stack">
+            <div class="tech-rail-track" id="tech-rail-track">
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" alt="Prisma"></div>
+                <div class="tech-rail-icon"><img class="mono-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"></div>
+                <div class="tech-rail-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"></div>
+            </div>
+        </div>
     </section>
 
     <!-- Works Section -->
-    <section id="works">
-        <h2>My Works</h2>
-        <div class="works-cube-stage">
+    <section class="works-section" id="works">
+        <h2 data-parallax="0.4">My Works</h2>
+        <div class="works-cube-stage" data-parallax="0.35">
             <div class="works-cube" id="works-cube">
                 <div class="work-card cube-face cube-face-front">
-                    <span class="work-index">01</span>
-                    <h3>E-Commerce Platform</h3>
-                    <p>A fully responsive e-commerce website built with React and Redux, featuring product filtering, cart management, and smooth checkout experience.</p>
+                    <a href="https://raahz21.github.io/E-commerce-Project/" target="_blank" rel="noopener noreferrer">
+                        <span class="work-index">01</span>
+                        <h3>E-Commerce Platform</h3>
+                        <p>A fully responsive e-commerce website built with React and Redux, featuring product filtering, cart management, and smooth checkout experience.</p>
+                    </a>
                 </div>
                 <div class="work-card cube-face cube-face-right">
                     <span class="work-index">02</span>
@@ -226,30 +307,30 @@
                 <div class="cube-cap cube-face-bottom" aria-hidden="true"></div>
             </div>
         </div>
-        <div class="works-cube-controls" aria-label="Rotate works cube">
+        <div class="works-cube-controls" aria-label="Rotate works cube" data-parallax="0.3">
             <button type="button" class="cube-control" id="cube-prev" aria-label="Previous work">Prev</button>
             <button type="button" class="cube-control" id="cube-next" aria-label="Next work">Next</button>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <p>Feel free to reach out to me for any inquiries or collaboration opportunities. I'd love to hear from you!</p>
-        <div class="contact-info">
-            <div class="contact-item">
+    <section class="contact-section" id="contact">
+        <h2 data-parallax="0.4">Get In Touch</h2>
+        <p data-parallax="0.35">Feel free to reach out to me for any inquiries or collaboration opportunities. I'd love to hear from you!</p>
+        <div class="contact-info" data-parallax="0.3">
+            <div class="contact-item" data-parallax="0.35">
                 <span>📧 Email:</span>
                 <a href="mailto:your.email@example.com">your.email@example.com</a>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-parallax="0.4">
                 <span>💼 LinkedIn:</span>
                 <a href="https://linkedin.com" target="_blank">linkedin.com/in/yourprofile</a>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-parallax="0.45">
                 <span>🐙 GitHub:</span>
                 <a href="https://github.com" target="_blank">github.com/yourprofile</a>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-parallax="0.5">
                 <span>𝕏 Twitter:</span>
                 <a href="https://twitter.com" target="_blank">@yourhandle</a>
             </div>
@@ -257,10 +338,10 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-section">
         <p>&copy; 2026 Front-End Developer. All rights reserved.</p>
-        
     </footer>
+    </main>
     <script src="js/index.js"></script>
 </body>
 </html>
