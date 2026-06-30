@@ -134,12 +134,20 @@ nav a:hover::after {
     justify-content: center;
   }
 
+  .nav-brand .theme-toggle {
+    display: none;
+  }
+
   .nav-links-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  .nav-links-row .theme-toggle {
+    display: inline-grid;
   }
 
   nav ul {
