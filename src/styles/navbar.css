@@ -50,6 +50,11 @@ nav {
   outline: none;
 }
 
+/* Hide mobile toggle in desktop view */
+.nav-links-row .theme-toggle {
+  display: none;
+}
+
 .theme-toggle:focus-visible {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
