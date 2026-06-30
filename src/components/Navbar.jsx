@@ -17,14 +17,6 @@ export default function Navbar({ isLight, toggleTheme }) {
     <nav>
       <div className="nav-brand">
         <div className="logo">Vince Aerhol Cabardo</div>
-      </div>
-      <div className="nav-links-row">
-        <ul>
-          <li><a href="#home" onClick={(e) => handleNavClick(e, 'home')}>Home</a></li>
-          <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About</a></li>
-          <li><a href="#works" onClick={(e) => handleNavClick(e, 'works')}>Works</a></li>
-          <li><a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a></li>
-        </ul>
         <button
           type="button"
           className="theme-toggle"
@@ -55,6 +47,14 @@ export default function Navbar({ isLight, toggleTheme }) {
           </span>
           <span className="theme-thumb"></span>
         </button>
+      </div>
+      <div className="nav-links-row">
+        <ul>
+          <li><a href="#home" onClick={(e) => handleNavClick(e, 'home')}>Home</a></li>
+          <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About</a></li>
+          <li><a href="#works" onClick={(e) => handleNavClick(e, 'works')}>Works</a></li>
+          <li><a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a></li>
+        </ul>
       </div>
     </nav>
   );

@@ -286,7 +286,7 @@ export default function AboutSection() {
           <div className="about-photo-stack">
             <div className="photo-main reveal-scale">
               <div className="photo-frame">
-                <img src="/images/MainID.jpg" alt="Vince Aerhol Cabardo" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img src="/MainID.jpg" alt="Vince Aerhol Cabardo" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <div className="photo-caption">
                 <span className="photo-name">Vince Aerhol Cabardo</span>
@@ -297,7 +297,7 @@ export default function AboutSection() {
             <div className="flip-card flip-card-1 reveal-scale">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <img src="/images/IDmini.jpg" alt="Vince Aerhol" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <img src="/IDmini.jpg" alt="Vince Aerhol" onError={(e) => { e.target.style.display = 'none'; }} />
                   <span className="flip-card-label">Front</span>
                 </div>
                 <div className="flip-card-back">
